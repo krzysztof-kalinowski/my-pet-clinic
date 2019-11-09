@@ -1,13 +1,13 @@
-package kkalinowski.springframework.mypetclinic;
+package kkalinowski.springframework.kkpetclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyPetClinicApplication {
+public class KKPetClinicApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MyPetClinicApplication.class, args);
+        SpringApplication.run(KKPetClinicApplication.class, args);
     }
 
 }
