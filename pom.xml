@@ -14,9 +14,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>kkalinowski.springframework</groupId>
-    <artifactId>my-pet-clinic</artifactId>
+    <artifactId>kk-pet-clinic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>my-pet-clinic</name>
+    <name>kk-pet-clinic</name>
     <description>KK Pet Clinic Project</description>
 
     <properties>
