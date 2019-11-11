@@ -4,7 +4,7 @@ package kkalinowski.springframework.kkpetclinic.model;
  * Created by Krzysztof Kalinowski on 10/11/2019.
  */
 
-public class PetType {
+public class PetType extends BaseEntity {
 
     private String name;
 
