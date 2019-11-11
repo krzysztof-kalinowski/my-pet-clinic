@@ -9,6 +9,10 @@
 
     <artifactId>pet-clinic-web</artifactId>
 
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <artifactId>pet-clinic-data</artifactId>
