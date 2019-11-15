@@ -1,7 +1,7 @@
 package kkalinowski.springframework.kkpetclinic.service.map;
 
 import kkalinowski.springframework.kkpetclinic.model.Owner;
-import kkalinowski.springframework.kkpetclinic.service.CrudService;
+import kkalinowski.springframework.kkpetclinic.service.OwnerService;
 
 import java.util.Set;
 
@@ -9,7 +9,8 @@ import java.util.Set;
  * Created by Krzysztof Kalinowski on 11/11/2019.
  */
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
+
 
     @Override
     public Set<Owner> findAll() {
@@ -34,5 +35,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

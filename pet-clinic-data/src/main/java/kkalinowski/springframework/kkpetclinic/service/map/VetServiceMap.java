@@ -1,7 +1,7 @@
 package kkalinowski.springframework.kkpetclinic.service.map;
 
 import kkalinowski.springframework.kkpetclinic.model.Vet;
-import kkalinowski.springframework.kkpetclinic.service.CrudService;
+import kkalinowski.springframework.kkpetclinic.service.VetService;
 
 import java.util.Set;
 
@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by Krzysztof Kalinowski on 11/11/2019.
  */
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
