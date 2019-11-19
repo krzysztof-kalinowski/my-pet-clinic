@@ -13,11 +13,11 @@ import java.util.Set;
  */
 
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     private final VisitService visitService;
 
-    public PetServiceMap(VisitService visitService) {
+    public PetMapService(VisitService visitService) {
         this.visitService = visitService;
     }
 
