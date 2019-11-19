@@ -1,5 +1,6 @@
 package kkalinowski.springframework.kkpetclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,11 +8,20 @@ import java.util.Set;
  * Created by Krzysztof Kalinowski on 10/11/2019.
  */
 
+@Entity
+@Table(name = "owners")
 public class Owner extends Person {
 
+    @Column(name = "adress")
     private String adress;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "telephone")
     private String telephone;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
     public String getAdress() {
