@@ -2,6 +2,7 @@ package kkalinowski.springframework.kkpetclinic.service.map;
 
 import kkalinowski.springframework.kkpetclinic.model.Visit;
 import kkalinowski.springframework.kkpetclinic.service.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * Created by Krzysztof Kalinowski on 19/11/2019.
  */
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

@@ -3,6 +3,7 @@ package kkalinowski.springframework.kkpetclinic.service.map;
 import kkalinowski.springframework.kkpetclinic.model.Pet;
 import kkalinowski.springframework.kkpetclinic.service.PetService;
 import kkalinowski.springframework.kkpetclinic.service.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.Set;
  */
 
 @Service
+@Profile({"default", "map"})
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
     private final VisitService visitService;
