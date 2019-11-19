@@ -1,10 +1,7 @@
 package kkalinowski.springframework.kkpetclinic.bootstrap;
 
 import kkalinowski.springframework.kkpetclinic.model.*;
-import kkalinowski.springframework.kkpetclinic.service.OwnerService;
-import kkalinowski.springframework.kkpetclinic.service.PetTypeService;
-import kkalinowski.springframework.kkpetclinic.service.SpecialityService;
-import kkalinowski.springframework.kkpetclinic.service.VetService;
+import kkalinowski.springframework.kkpetclinic.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,12 +17,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -59,10 +58,16 @@ public class DataLoader implements CommandLineRunner {
         michalPet.setOwner(owner1);
         michalPet.setBirthDate(LocalDate.now());
         michalPet.setName("Micha");
+
         owner1.getPets().add(michalPet);
 
         ownerService.save(owner1);
 
+        Visit michaVisit = new Visit();
+        michaVisit.setPet(michalPet);
+        michaVisit.setDate(LocalDate.now());
+        michaVisit.setDescription("pierwsza wizyta kontrolna");
+        visitService.save(michaVisit);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Patrycja");
