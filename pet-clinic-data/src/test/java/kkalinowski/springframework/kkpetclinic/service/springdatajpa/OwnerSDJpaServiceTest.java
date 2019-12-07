@@ -11,9 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -67,6 +65,36 @@ class OwnerSDJpaServiceTest {
     }
 
     @Test
+    void findAllByLastNameLikeEmptyTest() {
+        List<Owner> returnOwners = new ArrayList<>();
+        returnOwners.add(Owner.builder().id(1L).build());
+        returnOwners.add(Owner.builder().id(2L).build());
+
+        when(ownerRepository.findAllByLastNameLike(anyString())).thenReturn(returnOwners);
+
+        List<Owner> owners = service.findAllByLastNameLike("");
+
+        assertNotNull(owners);
+        assertEquals(2, owners.size());
+    }
+
+    @Test
+    void findAllByLastNameLikeTest() {
+        List<Owner> returnOwners = new ArrayList<>();
+        returnOwners.add(Owner.builder().id(1L).lastName("Aaaaa").build());
+//        returnOwners.add(Owner.builder().id(2L).lastName("Bbbbb").build());
+
+        when(ownerRepository.findAllByLastNameLike("A")).thenReturn(returnOwners);
+
+        List<Owner> owners = service.findAllByLastNameLike("A");
+
+        assertNotNull(owners);
+        assertEquals(1, owners.size());
+    }
+
+
+
+    @Test
     void findById() {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
         Owner owner = service.findById(returnOwner.getId());
@@ -99,4 +127,6 @@ class OwnerSDJpaServiceTest {
         service.deleteById(1L);
         verify(ownerRepository).deleteById(anyLong());
     }
+
+
 }
