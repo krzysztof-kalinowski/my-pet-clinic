@@ -34,6 +34,7 @@ public class PetTypeSDJpaService implements PetTypeService {
         return petTypeRepository.findById(aLong).orElse(null);
     }
 
+
     @Override
     public PetType save(PetType object) {
         return petTypeRepository.save(object);
@@ -47,5 +48,10 @@ public class PetTypeSDJpaService implements PetTypeService {
     @Override
     public void deleteById(Long aLong) {
         petTypeRepository.deleteById(aLong);
+    }
+
+    @Override
+    public PetType findByName(String name) {
+        return petTypeRepository.findByName(name);
     }
 }

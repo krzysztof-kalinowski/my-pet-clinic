@@ -7,4 +7,6 @@ import kkalinowski.springframework.kkpetclinic.model.PetType;
  */
 
 public interface PetTypeService extends CrudService<PetType, Long>{
+
+    PetType findByName(String name);
 }

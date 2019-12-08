@@ -26,6 +26,14 @@ public class PetTypeMapService extends AbstractMapService<PetType, Long> impleme
     }
 
     @Override
+    public PetType findByName(String name) {
+        return super.findAll().stream()
+                .filter(petType -> petType.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public PetType save(PetType object) {
         return super.save(object);
     }
